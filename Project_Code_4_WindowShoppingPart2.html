@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--this version does not show the markers on the intialization of the map or set the boundary --> 
 <html>
   <head>
     <style>
@@ -108,6 +109,7 @@
             populateInfoWindow(this, largeInfowindow);
           });
         }
+        // show or hide markers
         document.getElementById('show-listings').addEventListener('click', showListings);
         document.getElementById('hide-listings').addEventListener('click', hideListings);
       }
@@ -149,7 +151,7 @@
 
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?key=MYAPIKEY&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?key=AIzaSyCWoooPDPm4c0y1NZvhffqZ_yCuKHLSoZM&v=3&callback=initMap">
     </script>
 
   </body>

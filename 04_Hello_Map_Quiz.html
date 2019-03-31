@@ -10,18 +10,38 @@ API Course, Lesson 1 -->
  </head>
  <body>
    <!-- TODO 1: Create a place to put the map in the HTML-->
-   <div></div>
+   <div id="map"></div>
    <script>
      // TODO: Create a map variable
-
+		var map;
      // TODO: Complete the following function to initialize the map
      function initMap() {
        // TODO: use a constructor to create a new map JS object. You can use the coordinates
-       // we used, 40.7413549, -73.99802439999996 or your own!
+       map = new google.maps.Map(document.getElementById('map'), {
+    	  center: {lat: 40.7413549, lng: -73.99802439999996},
+    	  zoom: 13
+       });
+   		// create a location for a marker
+   		var tribeca = {lat: 40.719526, lng: -74.0089934};
+   		// set the marker on the map
+   		var marker = new google.maps.Marker({
+   			position: tribeca,
+   			map: map,
+   			title: 'First Marker!'
+   		});
+   		// create the info window, but needs a way to  open
+       var infowindow = new google.maps.InfoWindow({
+    	  content: 'This is the information in the info window'
+       });
+   		// add a listener to open the info window when the marker is clicked
+	   marker.addListener('click', function() {
+		  infowindow.open(map, marker);
+	   });	   		
      }
-   </script>
+   </script> 
    <!--TODO: Load the JS API ASYNCHRONOUSLY below.-->
-   <script>
-   </script>
+	<script async defer
+   		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWoooPDPm4c0y1NZvhffqZ_yCuKHLSoZM&v=3&callback=initMap">
+   	</script>
  </body>
 </html>
